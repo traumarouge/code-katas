@@ -1,0 +1,17 @@
+apply plugin: 'groovy'
+
+version = '0.1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.10'
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+    testCompile 'cglib:cglib-nodep:3.2.5'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}
