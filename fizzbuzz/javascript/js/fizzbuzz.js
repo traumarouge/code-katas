@@ -1,4 +1,4 @@
-exports.say = function(number) {
+export function fizzbuzz(number) {
   check(number);
 
   if (number % 15 === 0) {
@@ -10,7 +10,7 @@ exports.say = function(number) {
   }
 
   return number.toString();
-};
+}
 
 function check(number) {
   if (!Number.isInteger(number)) {
