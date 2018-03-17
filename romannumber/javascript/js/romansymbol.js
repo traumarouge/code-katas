@@ -1,6 +1,6 @@
 "use strict";
 
-class RomanSymbol {
+export class RomanSymbol {
   constructor(name, number) {
     this.name = name;
     this.number = number;
@@ -38,5 +38,3 @@ RomanSymbol.rightShift = function(romanSymbol, n) {
 
   return symbols[(index + shift) % symbols.length];
 };
-
-module.exports = RomanSymbol;

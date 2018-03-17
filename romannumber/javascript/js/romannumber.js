@@ -1,19 +1,23 @@
 "use strict";
 
-const RomanSymbol = require("./romansymbol");
+import { RomanSymbol } from "./romansymbol.js";
 
-exports.format = function(number) {
+export function format(number) {
   if (!Number.isInteger(number) || number < 1 || number > 3999) {
     throw new Error();
   }
 
   const romanNumbers = [];
-  number.toString().split("").reverse().forEach((digit, index) => {
-    romanNumbers.push(romanNumber(digit, index));
-  });
+  number
+    .toString()
+    .split("")
+    .reverse()
+    .forEach((digit, index) => {
+      romanNumbers.push(romanNumber(digit, index));
+    });
 
   return romanNumbers.reverse().join("");
-};
+}
 
 function romanNumber(decimalDigit, index) {
   let digit = Number(decimalDigit);
@@ -50,19 +54,19 @@ function collapse(romanNumber, replacementSymbol) {
     : romanNumber.substring(4) + replacementSymbol;
 }
 
-exports.parse = function(romanNumber) {
+export function parse(romanNumber) {
   var romanSymbols = [];
   romanNumber.split("").forEach(it => {
     romanSymbols.push(RomanSymbol[it]);
   });
 
   let number = decimalNumber(romanSymbols);
-  if (this.format(number) !== romanNumber) {
+  if (format(number) !== romanNumber) {
     throw new Error();
   }
 
   return number;
-};
+}
 
 function decimalNumber(romanSymbols) {
   const numbers = [];

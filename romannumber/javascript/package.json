@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "chai": "^4.0.1",
-    "mocha": "^3.4.2"
+  "devDependencies": {
+    "babel-jest": "^23.0.0-alpha.0",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.2"
   }
 }
