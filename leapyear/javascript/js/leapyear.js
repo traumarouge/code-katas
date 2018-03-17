@@ -1,3 +1,3 @@
-exports.isLeap = function(year) {
+export function leapyear(year) {
   return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
-};
+}
