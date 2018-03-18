@@ -1,6 +1,6 @@
 "use strict";
 
-class Lightbar {
+export class Lightbar {
   constructor(numberOfLights) {
     this._numberOfLights = numberOfLights;
     this._register = null;
@@ -28,5 +28,3 @@ class Lightbar {
     this._register.fill(false);
   }
 }
-
-module.exports = Lightbar;

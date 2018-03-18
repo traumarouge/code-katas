@@ -1,6 +1,6 @@
 "use strict";
 
-class Ticker {
+export class Ticker {
   constructor(count) {
     this._count = 0;
     this.lightbar = null;
@@ -15,5 +15,3 @@ class Ticker {
     }
   }
 }
-
-module.exports = Ticker;

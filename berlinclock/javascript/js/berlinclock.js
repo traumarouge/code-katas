@@ -1,9 +1,9 @@
 "use strict";
 
-const Ticker = require("./ticker.js");
-const Lightbar = require("./lightbar.js");
+import { Ticker } from "./ticker.js";
+import { Lightbar } from "./lightbar.js";
 
-class BerlinClock {
+export class BerlinClock {
   constructor(hour, minute) {
     const ticker = new Ticker();
     const bigHours = new Lightbar(4);
@@ -39,5 +39,3 @@ class BerlinClock {
     this.triggerTicks(seconds);
   }
 }
-
-module.exports = BerlinClock;
