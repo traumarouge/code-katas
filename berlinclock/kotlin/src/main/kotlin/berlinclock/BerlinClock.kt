@@ -6,7 +6,15 @@ class BerlinClock(val hours: Int = 0, val minutes: Int = 0) {
     private val smallHours = LightBar(4, largeHours)
     private val largeMinutes = LightBar(11, smallHours)
     private val smallMinutes = LightBar(4, largeMinutes)
-    private val ticker = Ticker(smallMinutes)
+
+    private val ticker = Ticker {
+        if (smallHours.isFull() && largeHours.isFull()) {
+            smallHours.reset()
+            largeHours.reset()
+        }
+
+        smallMinutes.increment()
+    }
 
     init {
         val seconds = 3600 * hours + 60 * minutes
@@ -16,7 +24,6 @@ class BerlinClock(val hours: Int = 0, val minutes: Int = 0) {
     fun triggerTicks(ticks: Int) {
         repeat(ticks) { ticker.tick() }
     }
-
 
     override fun toString() = StringBuilder().apply {
         append(largeHours.toString().replace('*', 'H'))

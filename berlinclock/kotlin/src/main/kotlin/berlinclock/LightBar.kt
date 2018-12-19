@@ -5,6 +5,10 @@ class LightBar(private val numberOfLights: Int,
 
     private var lightsOn = 0
 
+    override fun reset() {
+        lightsOn = 0
+    }
+
     override fun increment() {
         if (lightsOn < numberOfLights) {
             lightsOn++
@@ -14,6 +18,7 @@ class LightBar(private val numberOfLights: Int,
         }
     }
 
+    override fun isFull() = lightsOn == numberOfLights
 
     override fun toString() = StringBuilder().apply {
         append("*".repeat(lightsOn))

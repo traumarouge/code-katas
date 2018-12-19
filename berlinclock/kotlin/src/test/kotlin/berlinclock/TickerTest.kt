@@ -6,25 +6,23 @@ import org.junit.jupiter.api.Test
 class TickerTest {
 
     @Test
-    fun nextRegisterIncrementedAfter60Ticks() {
-        var incrementCounter = 0
-
-        val sut = Ticker(object : Register {
-            override fun increment() {
-                incrementCounter++
-            }
-        })
+    fun intervalListenerNotifiedAfter60Ticks() {
+        var notifications = 0
+        val sut = Ticker { notifications++ }
 
         // tick 59 times
         repeat(59) { sut.tick() }
-        assertEquals(0, incrementCounter)
+        assertEquals(59, sut.count)
+        assertEquals(0, notifications)
 
         // 60th tick
         sut.tick()
-        assertEquals(1, incrementCounter)
+        assertEquals(0, sut.count)
+        assertEquals(1, notifications)
 
         // tick another 60 times
         repeat(60) { sut.tick() }
-        assertEquals(2, incrementCounter)
+        assertEquals(0, sut.count)
+        assertEquals(2, notifications)
     }
 }

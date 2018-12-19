@@ -1,15 +1,16 @@
 package berlinclock
 
-class Ticker(private val next: Register? = null) {
+class Ticker(private val intervalListener: () -> Unit) {
 
-    private var count = 0
+    var count = 0
+        private set
 
     fun tick() {
         count++
 
         if (count == 60) {
             count = 0
-            next?.increment()
+            intervalListener.invoke()
         }
     }
 }

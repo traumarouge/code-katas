@@ -9,7 +9,6 @@ class LightBarTest {
     @Test
     fun incrementRegister() {
         val sut = LightBar(2)
-
         assertEquals("--", sut.toString())
 
         sut.increment()
@@ -29,9 +28,13 @@ class LightBarTest {
         var incrementCounter = 0
 
         val sut = LightBar(2, object : Register {
+            override fun reset() = throw UnsupportedOperationException()
+
             override fun increment() {
                 incrementCounter++
             }
+
+            override fun isFull() = throw UnsupportedOperationException()
         })
 
         // increment 2 times
