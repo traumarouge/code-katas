@@ -1,0 +1,41 @@
+{
+  "alphabet": [
+    "a",
+    "b"
+  ],
+  "states": {
+    "q0": {
+      "initial": true,
+      "transitions": [
+        {
+          "target": "q1",
+          "symbols": [
+            "a"
+          ]
+        },
+        {
+          "target": "q0",
+          "symbols": [
+            "a",
+            "b"
+          ]
+        }
+      ]
+    },
+    "q1": {
+      "transitions": [
+        {
+          "target": "q2",
+          "symbols": [
+            "a",
+            "b"
+          ]
+        }
+      ]
+    },
+    "q2": {
+      "accepting": true,
+      "transitions": []
+    }
+  }
+}

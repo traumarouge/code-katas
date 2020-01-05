@@ -1,0 +1,95 @@
+{
+  "alphabet": [
+    "a",
+    "b"
+  ],
+  "states": {
+    "q0": {
+      "initial": true,
+      "transitions": [
+        {
+          "target": "q1",
+          "symbols": [
+            "a"
+          ]
+        },
+        {
+          "target": "q2",
+          "symbols": [
+            "b"
+          ]
+        },
+        {
+          "target": "q3",
+          "symbols": [
+            ""
+          ]
+        }
+      ]
+    },
+    "q1": {
+      "transitions": [
+        {
+          "target": "q0",
+          "symbols": [
+            ""
+          ]
+        }
+      ]
+    },
+    "q2": {
+      "transitions": [
+        {
+          "target": "q0",
+          "symbols": [
+            ""
+          ]
+        }
+      ]
+    },
+    "q3": {
+      "transitions": [
+        {
+          "target": "q4",
+          "symbols": [
+            "a"
+          ]
+        },
+        {
+          "target": "q5",
+          "symbols": [
+            "a"
+          ]
+        }
+      ]
+    },
+    "q4": {
+      "transitions": [
+        {
+          "target": "q6",
+          "symbols": [
+            "a"
+          ]
+        }
+      ]
+    },
+    "q5": {
+      "transitions": [
+        {
+          "target": "q7",
+          "symbols": [
+            "b"
+          ]
+        }
+      ]
+    },
+    "q6": {
+      "accepting": true,
+      "transitions": []
+    },
+    "q7": {
+      "accepting": true,
+      "transitions": []
+    }
+  }
+}
